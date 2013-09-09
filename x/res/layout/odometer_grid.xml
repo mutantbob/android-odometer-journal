@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+        android:paddingRight="10dp">
+<TextView
+    android:id="@+id/odometer"
+    android:layout_width="10dp"
+    android:layout_weight="1"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:text="odometer"
+    />
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="10dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="date"
+        />
+    <TextView
+        android:id="@+id/volume"
+        android:layout_width="10dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+            android:gravity="right"
+        android:text="volume"
+        />
+
+</LinearLayout>
