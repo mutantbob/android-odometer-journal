@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Odometer Journal</string>
+    <string name="date">date</string>
+    <string name="volume">volume</string>
+    <string name="odometer">odometer</string>
 </resources>

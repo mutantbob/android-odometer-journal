@@ -7,16 +7,16 @@
     <include
             android:id="@+id/bottom"
             layout="@layout/editor"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
             />
 
     <ListView
             android:id="@+id/grid"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_above="@id/bottom"
+            android:layout_toLeftOf="@id/bottom"
             />
 
 </RelativeLayout>
