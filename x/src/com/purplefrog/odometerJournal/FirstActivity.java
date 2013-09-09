@@ -50,23 +50,17 @@ public class FirstActivity extends Activity
             R.id.volume
         };
 
-        if (true) {
-
-            Runnable runnable = new Runnable()
+        Runnable runnable = new Runnable()
+        {
+            public void run()
             {
-                public void run()
-                {
-                    bgFillGridFromDB(widget_ids, gv);
-                }
-            };
+                bgFillGridFromDB(widget_ids, gv);
+            }
+        };
 
-            Thread t = new Thread(runnable, "db query");
-            t.start();
+        Thread t = new Thread(runnable, "db query");
+        t.start();
 
-        } else {
-            ListAdapter adapter = new SimpleAdapter(this, fakeData(), R.layout.odometer_grid, MyDBHelper.COLUMN_NAMES, widget_ids);
-            gv.setAdapter(adapter);
-        }
     }
 
     private void bgFillGridFromDB(final int[] widget_ids, final ListView gv)
@@ -86,37 +80,11 @@ public class FirstActivity extends Activity
 
     public Cursor queryGridAdapter()
     {
-        final Cursor cursor;
         SQLiteOpenHelper helper = new MyDBHelper(this);
 
         SQLiteDatabase db = helper.getReadableDatabase();
 
-        cursor = db.query("journal", MyDBHelper.COLUMN_NAMES, null, null, null, null, "odometer");
-        return cursor;
-    }
-
-    private List<Map<String, Object>> fakeData()
-    {
-        List<Map<String, Object>> rval = new ArrayList<Map<String, Object>>();
-        for (int i=0; i<20; i++) {
-            rval.add(fakeDatum());
-        }
-        return rval;
-    }
-
-    Random rand = new Random();
-
-    private Map<String, Object> fakeDatum()
-    {
-
-        TreeMap<String, Object> rval = new TreeMap<String, Object>();
-        rval.put("odometer", rand.nextInt(200000));
-
-        long epoch = rand.nextLong()%4000000000000L;
-        rval.put("date", df.format(new Date(epoch)));
-
-        rval.put("volume", rand.nextInt(1000)/100.0);
-        return rval;
+        return db.query("journal", MyDBHelper.COLUMN_NAMES, null, null, null, null, "odometer");
     }
 
     public void addRow()
@@ -194,10 +162,8 @@ public class FirstActivity extends Activity
     {
         super.onResume();
 
-
         EditText date = (EditText) findViewById(R.id.date);
         date.setText(df.format(new Date()));
-
     }
 
 }
